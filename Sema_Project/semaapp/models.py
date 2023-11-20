@@ -1,17 +1,21 @@
 from django.db import models
 from django.contrib.auth.models import AbstractUser
 
-class Users(AbstractUser):
+class User(AbstractUser):
     
     Roles=(
         ('Admin', 'Admin'),
         ('Customer', 'Customer'),
-        ('Health_provider', 'Health_provider'),
-        
+       ('Health_provider', 'Health_provider'),
+
     )
-    role = models.CharField(max_length=20, choices=Roles)#(admin,health provider)
+    role = models.CharField(max_length=209, choices=Roles)#(admin,health provider)
+
+
 
     REQUIRED_FIELDS = ['role', 'first_name', 'last_name']
+
+
 # Create your models here.
 #Customer Table
 class Customer(models.Model):
@@ -94,7 +98,7 @@ class PD_SCREENING(models.Model):
     ID = models.IntegerField(primary_key=True),
     CustomerID =models.ForeignKey(Customer, on_delete=models.CASCADE),
     Date =models.DateField(),
-    Results =models.TextField(max_length=200),
+    Results =models.CharField(max_length=255),
     SCREENING_TYPES = (
         ('Edinburgh Postnatal Depression Scale', 'Edinburgh Postnatal Depression Scale'),
         ('Patient Health Questionnaire', 'Patient Health Questionnaire'),
@@ -102,7 +106,7 @@ class PD_SCREENING(models.Model):
         ('Beck Depression Inventory-II ', 'Beck Depression Inventory-II'),
         ('Zung Self-Rating Depression Scale ', 'Zung Self-Rating Depression Scale '),
     )
-    Screening_tool = models.CharField(max_length=20, choices=SCREENING_TYPES)
+    Screening_tool = models.CharField(max_length=300, choices=SCREENING_TYPES)
     SCORE_TYPES = (
         ('0_10', '0_10'),
         ('11_20', '11_20'),
@@ -112,7 +116,7 @@ class PD_SCREENING(models.Model):
         ('Above 50', 'Above 50'),
 
     )
-    Score = models.CharField(max_length=20, choices=SCORE_TYPES)
+    Score = models.CharField(max_length=300, choices=SCORE_TYPES)
 
 
 #RESOURCE LOCATOR TABLE

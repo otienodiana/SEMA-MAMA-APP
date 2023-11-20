@@ -1,9 +1,10 @@
 from django.contrib import admin
 from .models import *
 from django.contrib.auth.admin import UserAdmin
+from .models import User
 
 # Register your models here.
-class UsersAdmin(UserAdmin):
+class UserAdmin(UserAdmin):
     list_display = ['username', "first_name", "last_name", "role",]
     fieldsets = (
         (None, {'fields': ('username','password')}),
@@ -17,8 +18,7 @@ class UsersAdmin(UserAdmin):
     
 
 #For property
-admin.site.register(Users, UsersAdmin)
-
+admin.site.register(User, UserAdmin)
 
 #for customers
 class CustomerAdmin(admin.ModelAdmin):
