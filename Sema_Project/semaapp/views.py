@@ -9,7 +9,7 @@ from django.contrib.auth.decorators import login_required
 from django.core.paginator import Paginator,PageNotAnInteger,EmptyPage
 from django.contrib import messages, auth
 # Importing the built-in User model
-from django.contrib.auth.models import User
+from . models import User
 
 
 
@@ -21,13 +21,13 @@ def home(request):
 #REGSRATION VIEWTI
 def register(request):
     if request.method == 'POST':
-         firstname = request.POST['firstname']
-         lastname= request.POST['lastname']
-         username = request.POST['username']
-         password = request.POST['password']
-         role = request.POST['role']
-         registers = User.objects.create_user(first_name=firstname, last_name=lastname, username=username, password=password, role=role)
-         return redirect('logins')
+        firstname = request.POST['firstname']
+        lastname= request.POST['lastname']
+        username = request.POST['username']
+        password = request.POST['password']
+        role = request.POST['role']
+        registerss = User.objects.create_user(username=username, first_name=firstname, last_name=lastname, password=password, role=role)
+        return redirect('logins')
 
 
     return render(request, 'register.html')
