@@ -1,0 +1,77 @@
+{% extends 'base.html' %}
+
+{% block title %}
+User-REGISTER PROPERTY
+{% endblock %}
+
+{% block content %}
+{% load static %}
+
+
+<body>
+    <h1>BLUEBAND REALESTATE COMPANY</h1>
+    <div class="admin-panel">
+        <div class="card-title">
+            
+        </div>
+        <div class="row">
+            
+            <div class="row">
+                <img src="{% static 'assets/img/re.jpeg' %}" style="width:50%; height:100%" alt="Real Estate 4">
+            </div>
+
+            
+        </div>
+        <strong><h1>EXECUTIVE PROPERTY</h1></strong>
+        
+
+        <div class="row" style="gap: 20px; margin: 20pt; background-color: black;">
+            
+            {% for property in source %}
+            <div class="card" style="width: 18rem;">
+                <img src="{% static 'assets/img/real.jpeg' %}" class="card-img-top" alt="...">
+                <div class="card-body" style="background-color: aquamarine; text-decoration-color: blue;">
+                    <h5 class="card-title"><strong>{{ property.ResourceType }}</strong></h5>
+                    <p>Type: {{ property.ResourceType }}</p>
+                    <!-- Read More Button and Modal Trigger -->
+                   
+                    <a href="{% url 'resource_detail' ResourceID=property.pk %}" class="btn btn-primary">Read More</a>
+                    <!-- <button class="btn btn-primary" data-toggle="modal" data-target="#propertyModal{{ property.id }}">Read More</button> -->
+                </div>
+            </div>
+
+            <!-- Modal for Full Property Info -->
+            <div class="modal fade" id="propertyModal{{ property.id }}" tabindex="-1" role="dialog" aria-labelledby="propertyModalLabel{{ property.id }}" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="propertyModalLabel{{ property.id }}">{{ property.UploadDate }}</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <p>Type:{{ property.ResourceType }}</p>
+                            <p>UploadDate: {{ property.UploadDate }}</p>
+                            <p>Content: {{ property.Content }}</p>
+                            
+                            
+                            <!-- Add other property info here -->
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+
+            
+        </div>
+    </div>
+
+    <!-- Add your JavaScript and other closing tags here -->
+</body>
+{% include 'pagination.html' with page=info %}
+</html>
+{% endblock %}

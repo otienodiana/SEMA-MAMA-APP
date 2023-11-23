@@ -81,7 +81,7 @@ class Appointment (models.Model):
 
 #INFORMATION/RESOURCES TABLES
 class Resources(models.Model):
-    ResourceID = models.ForeignKey
+    ResourceID = models.IntegerField(primary_key=True)
     DOCUMENT_TYPES = (
         ('Mental-health videos', 'Mental-health videos'),
         ('Articles', 'Articles'),
