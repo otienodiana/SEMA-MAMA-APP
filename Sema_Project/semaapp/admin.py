@@ -50,7 +50,8 @@ admin.site.register(Appointment,appointmentAdmin )
 #For Resources
 class ResourcesAdmin(admin.ModelAdmin):
     list_display = (
-        "ResourceID","ResourceType", "UploadDate"
+        "ResourceID","ResourceType", "UploadDate",
+"File",
     )
 
 admin.site.register(Resources, ResourcesAdmin)

@@ -30,5 +30,13 @@ urlpatterns = [
     path('dashboard', views.dashboard, name='dashboard'),
     path('logout', views.logout, name='logout'),
     path('resource_cards', views.resource_cards, name='resource_cards'),
+    path('resource_detail/<int:ResourceID>', views.resource_detail, name='resource_detail'),
+    path('view_source/<int:ResourceID>', views.view_source, name='view_source'),
+    path('dashboard/<int:ResourceID>', views.dashboard, name='dashboard'),
+    path('feedback', views.feedback, name='feedback'),
+    path('confirmfeedback', views.confirmfeedback, name='confirmfeedback'),
+    path('resource_locator', views.resource_locator, name='resource_locator'),
+    path('PD_screening', views.PD_screening, name='PD_screening'),
+
 
 ]

@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+
+{% block title %}
+User-REGISTER PROPERTY
+{% endblock %}
+
+
+{% block content %}
+<div class="container">
+    <h1 class="display-4">Property Details</h1>
+    <img src="{{ property.File.url }}" alt="{{ property.ResourceType }}" class="img-fluid rounded mb-4" style="max-width: 100%;">
+
+    <div class="card">
+        <div class="card-body">
+            ResourceID
+ResourceType
+UploadDate
+File
+            <h3 class="card-title">{{ property.ResourceType }}</h3>
+            <p class="card-text"><strong>ResourceID:</strong> {{ property.ResourceID }}</p>
+            <p class="card-text"><strong>ResourceType :</strong> {{ property.ResourceType  }}</p>
+            <p class="card-text"><strong>UploadDate:</strong> {{ property.UploadDate }}</p>
+            
+
+            <!-- Add a "Book Now" button with a conditional check for user authentication -->
+            {% if user.is_authenticated %}
+                <a href="{% url 'view_source' ResourceID=property.pk %}" class="btn btn-success">Exit</a>
+            {% else %}
+                <a href="{% url 'logins' %}" class="btn btn-primary">Log in</a> 
+            {% endif %}
+        </div>
+    </div>
+</div>
+{% endblock %}

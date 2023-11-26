@@ -90,7 +90,8 @@ class Resources(models.Model):
         ('User_guides', 'User_guides'),
     )
     ResourceType = models.CharField(max_length=20, choices=DOCUMENT_TYPES)
-    UploadDate = models.DateTimeField
+    UploadDate = models.DateTimeField()
+    File=models.ImageField(upload_to='landlord_profile_pic', blank=True,null=True)
 
 
 #pd screening table
@@ -136,7 +137,7 @@ class Feedback(models.Model):
     Date =models.DateField(),
     Comments =models.CharField(max_length=250),
     RATING_TYPES = (
-        ('Very satisfied', 'Very satisfied'),
+        ('Very_satisfied', 'Very_satisfied'),
         ('Satisfied', 'Satisfied'),
         ('Unsatisfied', 'Unsatisfied '),
         
