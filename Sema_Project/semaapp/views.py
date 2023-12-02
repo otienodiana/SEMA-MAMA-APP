@@ -61,8 +61,8 @@ def create_appointment(request):
         Comment= request.POST['Comment']
         Date= request.POST['Date']  
         appointment= Appointment.objects.create(Firstname=Firstname, Lastname=Lastname, Role=Role, AppointmentType=AppointmentType, AppointmentStatus=AppointmentStatus,  Comment=Comment, Date=Date)
-        
-    return render(request,'appointment.html')
+        return redirect('confirmappointment')
+    return render(request, 'appointment.html')
 
 #CONFIRM APPOINTMENT
 def confirmappointment(request):
@@ -91,7 +91,7 @@ def logout(request):
     return redirect('home')
 
 
-@login_required(login_url='logins/')
+@login_required(login_url='logins')
 def dashboard (request):
    user = request.user
    role = user.role
@@ -103,6 +103,7 @@ def dashboard (request):
    return render(request, 'dashboard.html', context=context)
 
 #RESOURCES VIEW
+@login_required(login_url='logins')
 def resource_cards(request):
     source = Resources.objects.all()  # Fetch properties from your database
     paginator = Paginator(source, 4) 
@@ -145,7 +146,7 @@ def view_source(request, ResourceID):
 
 
 #FEEDBACK TABLE
-
+@login_required(login_url='logins')
 def feedback(request):
     if request.method == 'POST':
         Feedback_ID = request.POST[' Feedback_ID']
@@ -156,7 +157,7 @@ def feedback(request):
         Response_Status= request.POST['Response_Status']
          
         feeds= Feedback.objects.create(Feedback_ID=Feedback_ID, CustomerID=CustomerID, Date=Date, Comments=Comments, Ratings=Ratings,  Response_Status=Response_Status)
-        
+        return redirect('confirmfeedback')
     return render(request,'Feedback.html')
 
 
@@ -188,6 +189,20 @@ def resource_locator(request):
         
     return render(request,'ResourceLocator.html')
 
+#resource confirmation
+def confirmresource(request):
+    feeds = Resource_Locator.objects.first()
+    
+    # Retrieve all properties as a queryset
+    Resourcess = Resource_Locator.objects.all()
+
+    # Print the data (optional, for debugging purposes)
+    print(Resourcess)
+    # Handle the booking confirmation logic here
+    # You can save the booking details to your database, send confirmation emails, etc.
+    feeds = (Feedback)
+    return render(request, 'confirmresource.html', {'feeds': feeds})
+
 #SCREENING PD
 def PD_screening (request):
     if request.method == 'POST':
@@ -203,10 +218,7 @@ def PD_screening (request):
 def testing(request):
     return render(request, 'testing.html')
 
-#logout
-def logout(request):
-    auth.logout(request)
-    return redirect('dashboard')
+
 
 #LIST OF FEEDBACKS
 def feedbacklist(request):
@@ -219,4 +231,8 @@ def screenedlist(request):
     customer = request.user
     screenedlist = PD_SCREENING.objects.filter()
     return render(request, 'screenedlist.html', {'screenedlist': screenedlist})
+
+#LOCATIONS
+
+
 

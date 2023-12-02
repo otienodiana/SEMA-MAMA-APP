@@ -40,6 +40,5 @@ urlpatterns = [
     path('testing', views.testing, name='testing'),
     path('feedbacklist', views.feedbacklist, name='feedbacklist'),
     path('screenedlist', views.screenedlist, name='screenedlist'),
-
-
+    path('confirmresource', views.confirmresource, name='confirmresource'),
 ]
