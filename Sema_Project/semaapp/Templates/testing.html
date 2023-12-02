@@ -1,0 +1,154 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    Testing
+{% endblock %}
+
+{% block content %}
+<h1>Testing</h1>
+
+{% if role == 'Admin' %}
+
+
+  <div class="container rounded center bg-white mt-5 mb-5" style="display: flex;">
+      <div class="row">
+          <div class="col-md-3 border-right">
+              <div class="d-flex flex-column align-items-center text-center p-3 py-5"><img class="rounded-circle mt-5" width="150px" src="https://st3.depositphotos.com/15648834/17930/v/600/depositphotos_179308454-stock-illustration-unknown-person-silhouette-glasses-profile.jpg"><span class="font-weight-bold"></span><span class="text-black-50">DinahKindah Designs</span><span> </span></div>
+          </div>
+          <div class="col-md-5 border-right">
+              <div class="p-3 py-5">
+                  <div class="d-flex justify-content-between align-items-center mb-3">
+                      <h4 class="text-right"> My Profile </h4>
+                  </div>
+                  <div class="row mt-2">
+                      <div class="col-md-6"><label class="labels">firstname</label><input type="text" class="form-control" placeholder="first name" value=""></div>
+                      <div class="col-md-6"><label class="labels">lastname</label><input type="text" class="form-control" value="" placeholder="lastname"></div>
+                  </div>
+                  <div class="row mt-3">
+                      <div class="col-md-12"><label class="labels">emailadress</label><input type="text" class="form-control" placeholder="emailadress" value=""></div>
+                      
+                  </div>
+                 
+                  <div class="mt-5 text-center"><a href="{% url 'dashboard' %}" class="btn btn-primary">Save</a> </div>
+                  
+              </div>
+          </div>
+          
+          </div>
+      </div>
+  </div>
+  </div>
+  </div>
+  {% endif %}
+
+  {% if role == 'Customer' %}
+  <div class="container rounded center bg-white mt-5 mb-5" style="display: flex;">
+      <div class="row">
+          <div class="col-md-3 border-right">
+              <div class="d-flex flex-column align-items-center text-center p-3 py-5"><img class="rounded-circle mt-5" width="150px" src="https://st3.depositphotos.com/15648834/17930/v/600/depositphotos_179308454-stock-illustration-unknown-person-silhouette-glasses-profile.jpg"><span class="font-weight-bold"></span><span class="text-black-50">DinahKindah Designs</span><span> </span></div>
+          </div>
+          <div class="col-md-5 border-right">
+              <div class="p-3 py-5">
+                  <div class="d-flex justify-content-between align-items-center mb-3">
+                      <h4 class="text-right"> Customer </h4>
+                  </div>
+                  <div class="row mt-2">
+                      <div class="col-md-6"><label class="labels">firstname</label><input type="text" class="form-control" placeholder="first name" value=""></div>
+                      <div class="col-md-6"><label class="labels">lastname</label><input type="text" class="form-control" value="" placeholder="lastname"></div>
+                  </div>
+                  <div class="row mt-3">
+                      <div class="col-md-12"><label class="labels">emailadress</label><input type="text" class="form-control" placeholder="emailadress" value=""></div>
+                  <div class="mt-5 text-center"><a href="{% url 'dashboard' %}" class="btn btn-primary">Save</a> </div>
+                  
+              </div>
+          </div>
+          
+          </div>
+      </div>
+  </div>
+  </div>
+  </div>
+
+  {% endif %}
+  {% if role == 'Health_provider' %}
+  <div class="container rounded center bg-white mt-5 mb-5" style="display: flex;">
+    <div class="row">
+        <div class="col-md-3 border-right">
+            <div class="d-flex flex-column align-items-center text-center p-3 py-5"><img class="rounded-circle mt-5" width="150px" src="https://st3.depositphotos.com/15648834/17930/v/600/depositphotos_179308454-stock-illustration-unknown-person-silhouette-glasses-profile.jpg"><span class="font-weight-bold"></span><span class="text-black-50">DinahKindah Designs</span><span> </span></div>
+        </div>
+        <div class="col-md-5 border-right">
+            <div class="p-3 py-5">
+                <div class="d-flex justify-content-between align-items-center mb-3">
+                    <h4 class="text-right"> Health_provider </h4>
+                </div>
+                <div class="row mt-2">
+                    <div class="col-md-6"><label class="labels">firstname</label><input type="text" class="form-control" placeholder="first name" value=""></div>
+                    <div class="col-md-6"><label class="labels">lastname</label><input type="text" class="form-control" value="" placeholder="lastname"></div>
+                </div>
+                <div class="row mt-3">
+                    <div class="col-md-12"><label class="labels">emailadress</label><input type="text" class="form-control" placeholder="emailadress" value=""></div>
+                    <div class="col-md-12"><label class="labels">TenantID</label><input type="text" class="form-control" placeholder="TenantID " value=""></div>
+                    <div class="col-md-12"><label class="labels">ContactInfo</label><input type="text" class="form-control" placeholder=" ContactInfo" value=""></div>
+                    <div class="col-md-12"><label class="labels">MoveInDate</label><input type="text" class="form-control" placeholder="" value=""></div>
+                    <div class="col-md-12"><label class="labels">LeaseStartDate</label><input type="text" class="form-control" placeholder="LeaseStartDate " value=""></div>
+                    
+                </div>
+                <div class="row mt-3">
+                    <div class="col-md-6"><label class="labels">LeaseEndDate</label><input type="text" class="form-control" placeholder="LeaseEndDate" value=""></div>
+                    <div class="col-md-6"><label class="labels">RentAmount</label><input type="text" class="form-control" value="" placeholder="RentAmount"></div>
+                    <div class="col-md-6"><label class="labels">SecurityDeposit</label><input type="text" class="form-control" value="" placeholder="SecurityDeposit"></div>
+                </div>
+                <div class="mt-5 text-center"><a href="{% url 'dashboard' %}" class="btn btn-primary">Save</a> </div>
+                
+            </div>
+        </div>
+        
+        </div>
+    </div>
+</div>
+</div>
+</div>
+
+
+            
+
+             Modal for Full Property Info 
+            <div class="modal fade" id="propertyModal{{ property.id }}" tabindex="-1" role="dialog" aria-labelledby="propertyModalLabel{{ property.id }}" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="propertyModalLabel{{ property.id }}">{{ property.PropertyName }}</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <p>Name:{{ property.PropertyName }}</p>
+                            <p>Type: {{ property.PropertyType }}</p>
+                            <p>Address: {{ property.Address }}</p>
+                            <p>Purchase Date: {{ property.PurchaseDate }}</p>
+                            <p>Purchase Price: {{ property.PurchasePrice }}</p>
+                            <p>Current Value: {{ property.CurrentValue }}</p>
+                            <p>PropertyID: {{ property.PropertyImage }}</p>
+                            <p>Landlord ID: {{ property.LandLordID }}</p>
+                            Add other property info here 
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+
+            
+        </div>
+    </div>
+
+     Add your JavaScript and other closing tags here 
+</body>
+
+
+
+{% endif %}
+{% endblock %}

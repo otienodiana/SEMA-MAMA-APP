@@ -583,6 +583,7 @@
     .modal-header.login-header {
         border-top-left-radius: 5px;
         border-top-right-radius: 5px;
+    }
     /*Main CSS*/
     
     
@@ -739,18 +740,43 @@
                 </div>
                 <div class="navi">
                     <ul>
-
                         <li class="active"><a href="{% url 'dashboard' %}"><i class="fa fa-home" aria-hidden="true"></i><span class="hidden-xs hidden-sm">Dashboard</span></a></li>
-                        <li class="active"><a href="{% url 'create_appointment' %}"><i class="fa fa-home" aria-hidden="true"></i><span class="hidden-xs hidden-sm">Appointments</span></a></li>
                         <li class="active"><a href="{% url 'resource_cards' %}"><i class="fa fa-home" aria-hidden="true"></i><span class="hidden-xs hidden-sm">Resources</span></a></li>
-                        <li class="active"><a href="{% url 'feedback' %}"><i class="fa fa-home" aria-hidden="true"></i><span class="hidden-xs hidden-sm">Feedback</span></a></li>
-                        <li class="active"><a href="{% url 'resource_locator' %}"><i class="fa fa-home" aria-hidden="true"></i><span class="hidden-xs hidden-sm">Emergency Button</span></a></li>
+                        <li><a href="{% url 'create_appointment' %}"><i class="fa fa-calendar" aria-hidden="true"></i><span class="hidden-xs hidden-sm">Appointments</span></a></li>
+                        <li><a href="{% url 'resource_locator' %}"><i class="fa fa-home" aria-hidden="true"></i><span class="hidden-xs hidden-sm">Emergency Button</span></a></li>   
                         
+                        {% if role == 'Admin' %}
+                            
+                            <li><a href="{% url 'feedbacklist' %}"><i class="fa fa-home" aria-hidden="true"></i><span class="hidden-xs hidden-sm">Feedback</span></a></li>
+                            <li><a href="{% url 'screenedlist' %}"><i class="fa fa-home" aria-hidden="true"></i><span class="hidden-xs hidden-sm">Feedback</span></a></li>
+                            
+                            
                         
+                        {% endif %}
+
+                  
+                        {% if role == 'Customer' %}
+
+                            
+                            
+                            <li class="active"><a href="{% url 'feedback' %}"><i class="fa fa-home" aria-hidden="true"></i><span class="hidden-xs hidden-sm">Feedback</span></a></li>
+                            
+                        {% endif %}
+
+                        {% if role == 'Health_provider' %}
+
+                            
+                            
+                            <li class="active"><a href="{% url 'feedback' %}"><i class="fa fa-home" aria-hidden="true"></i><span class="hidden-xs hidden-sm">Feedback</span></a></li>
+                            <li class="active"><a href="{% url 'screenedlist' %}"><i class="fa fa-home" aria-hidden="true"></i><span class="hidden-xs hidden-sm">Feedback</span></a></li>
+                            
+                        {% endif %}
                         <li><a href="#"><i class="fa fa-calendar" aria-hidden="true"></i><span class="hidden-xs hidden-sm">Calender</span></a></li>
-                        
+            
+                        <li class="active"><a href="{% url 'logout' %}"><i class="fa fa-home" aria-hidden="true"></i><span class="hidden-xs hidden-sm">LogOut</span></a></li>
 
                     </ul>
+                    
 
                 </div>
             </div>

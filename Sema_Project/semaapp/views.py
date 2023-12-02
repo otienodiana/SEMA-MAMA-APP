@@ -200,4 +200,23 @@ def PD_screening (request):
         screen= PD_SCREENING.objects.create(ID=ID, CustomerID=CustomerID, Date=Date, Results=Results, Screening_tool=Screening_tool,  Score=Score)
     return render(request,'Screening.html')
 
+def testing(request):
+    return render(request, 'testing.html')
+
+#logout
+def logout(request):
+    auth.logout(request)
+    return redirect('dashboard')
+
+#LIST OF FEEDBACKS
+def feedbacklist(request):
+    customer = request.user
+    lists = Feedback.objects.filter()
+    return render(request, 'Feedbacklist.html', {'lists': lists})
+
+#SCREENED LISTS
+def screenedlist(request):
+    customer = request.user
+    screenedlist = PD_SCREENING.objects.filter()
+    return render(request, 'screenedlist.html', {'screenedlist': screenedlist})
 

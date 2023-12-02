@@ -37,6 +37,9 @@ urlpatterns = [
     path('confirmfeedback', views.confirmfeedback, name='confirmfeedback'),
     path('resource_locator', views.resource_locator, name='resource_locator'),
     path('PD_screening', views.PD_screening, name='PD_screening'),
+    path('testing', views.testing, name='testing'),
+    path('feedbacklist', views.feedbacklist, name='feedbacklist'),
+    path('screenedlist', views.screenedlist, name='screenedlist'),
 
 
 ]

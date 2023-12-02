@@ -1,0 +1,69 @@
+{% extends 'base.html' %}
+
+{% block title %}
+User-REGISTER PROPERTY
+{% endblock %}
+
+{% block content %}
+{% load static %}
+    <title>Order History</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px auto;
+            background-color: #f9f9f9;
+        }
+
+        th, td {
+            padding: 10px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+
+        th {
+            background-color: #333;
+            color: #fff;
+        }
+
+        tr:hover {
+            background-color: #e0e0e0;
+        }
+
+    </style>
+</head>
+<body>
+    <h1>OUR FEEDBACK</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Feedback_ID</th>
+                <th>Date</th>
+                <th>Comments</th>
+                <th>Ratings</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for x in lists %}
+            <tr>
+                <td>{{ x.Feedback_ID }}</td>
+                <td>{{ x.Date }}</td>
+                <td>{{ x.Comments }}</td>
+                <td>{{ x.Ratings }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+{% endblock %}
+
